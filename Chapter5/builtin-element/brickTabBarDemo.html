@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Brick Tabbar Element Demo</title>
+    <script src="../bower_components/platform/platform.js"></script>
+    <link rel="import" href="../bower_components/brick-tabbar/dist/brick-tabbar.html">
+</head>
+<body>
+
+<brick-tabbar>
+    <brick-tabbar-tab id="fruits" selected>
+        Fruits
+    </brick-tabbar-tab>
+    <brick-tabbar-tab id="flowers">
+        Flowers
+    </brick-tabbar-tab>
+    <brick-tabbar-tab id="vegetables">
+        Vegetables
+    </brick-tabbar-tab>
+</brick-tabbar>
+
+<button name="fruits">Select Fruits</button>
+<button name="flowers">Select Flowers</button>
+<button name="vegetables">Select Vegetables</button>
+
+<script>
+    window.addEventListener('WebComponentsReady',function(){
+        var buttonList = document.querySelectorAll("button");
+        for (var i = 0; i < buttonList.length; ++i) {
+            var item = buttonList[i];
+            item.addEventListener("click", function(e){
+                var name = e.target.name,
+                    targetTabBar = document.getElementById(name);
+                targetTabBar.select();
+            });
+        }
+    });
+</script>
+</body>
+</html>

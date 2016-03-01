@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+    <title>PolymerJS styleObject Builtin Filter Expression</title>
+</head>
+<body>
+    <template id="template1" is="auto-binding">
+        <div style="{{myStyle|styleObject}}">Name : {{student.name}}</div>
+    </template>
+    <script>
+        (function(){
+            var template1 = document.querySelector("#template1");
+            template1.student= {
+                "name":"Sandeep"
+            };
+            template1.myStyle= {
+                "color":"tomato",
+                "font-size":"30px",
+                "height":"40px",
+                "width": "200px",
+                "border":"1px solid green",
+                "padding":"20px"
+            };
+        })();
+    </script>
+</body>
+</html>

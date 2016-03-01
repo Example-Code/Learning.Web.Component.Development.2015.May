@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+    <link rel="import" href="evening-component.html">
+    <title>Polymer forceReady Method Demo</title>
+</head>
+<body>
+    <good-evening></good-evening>
+</body>
+</html>
+<script>
+    Polymer.forceReady();
+    Polymer.whenReady(function() {
+        console.log("Polymer is ready now...");
+        //Testing registration of good-evening element
+        Polymer('good-evening');
+    })
+</script>

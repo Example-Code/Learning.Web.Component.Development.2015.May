@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>
+        Web Component: A inert template content example.
+    </title>
+</head>
+<body>
+<div id="message"></div>
+<template id="aTemplate">
+    <img id="profileImage" src="http://www.gravatar.com/avatar/c6e6c57a2173fcbf2afdd5fe6786e92f.png">
+    <script>
+        alert("This is a script.");
+    </script>
+</template>
+<script>
+    (function(){
+        var imageElement = document.getElementById("profileImage"),
+            messageElement = document.getElementById("message");
+        messageElement.innerHTML = "IMG element "+imageElement;
+    })();
+</script>
+</body>
+</html>

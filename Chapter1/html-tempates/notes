@@ -1,0 +1,11 @@
+# To check the support of custom element
+http://caniuse.com/#feat=template
+
+#HTML template content is inert until activated.
+#Less load to network(images don't load)
+#Content is considered not to be in the document
+
+#DOM Interface
+interface HTMLTemplateElement : HTMLElement {
+  readonly attribute DocumentFragment content;
+};

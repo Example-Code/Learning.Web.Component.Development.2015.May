@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ts-clock element demo</title>
+    <link rel="import" href="ts-clock.html">
+</head>
+<body>
+    <ts-clock></ts-clock>
+<script>
+    window.addEventListener('WebComponentsReady',function(){
+        var tsClock = document.querySelector("ts-clock");
+        window.setTimeout(function(){
+            console.log("Hour : ",tsClock.getAttribute('hour'));
+            console.log("Minute : ",tsClock.getAttribute('minute'));
+            console.log("Second : ",tsClock.getAttribute('second'));
+        },1000)
+    });
+</script>
+</body>
+</html>

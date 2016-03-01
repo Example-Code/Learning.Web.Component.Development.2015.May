@@ -1,0 +1,13 @@
+<polymer-element name="print-hi" constructor="PrintHi">
+    <template>
+        <h4>Hi!!!</h4>
+    </template>
+    <script>
+        Polymer(Polymer.mixin({
+            //local method
+            printHi:function(){
+                return "Hi";
+            }
+        }, window.commonMixins));
+    </script>
+</polymer-element>

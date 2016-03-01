@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Web Component: content insertion point example</title>
+    <template id="welcomeTemplate">
+        <h1>
+            Welcome to <content></content>.This is an example of insertion point.
+        </h1>
+    </template>
+    <script>
+        var objectPrototype = Object.create(HTMLElement.prototype);
+        objectPrototype.createdCallback=function(){
+            var shadow = this.createShadowRoot(),
+                templateContent = document.querySelector('#welcomeTemplate').content,
+                templateNodes = document.importNode(templateContent, true);
+            shadow.appendChild(templateNodes);
+        };
+        var  myNameElement = document.registerElement("welcome-message",{
+            prototype:objectPrototype
+        });
+    </script>
+</head>
+<body>
+    <welcome-message>
+        <b>Web component</b>
+    </welcome-message>
+    <welcome-message>
+        <span style="color:red;">Javascript</span>
+    +</welcome-message>
+</body>
+</html>

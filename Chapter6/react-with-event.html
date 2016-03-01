@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ReactJS Event Demo</title>
+    <script src="bower_components/react/react.js"></script>
+    <script src="bower_components/react/JSXTransformer.js"></script>
+</head>
+<body>
+<script type="text/jsx">
+    var SayHello = React.createClass({
+        helloHandler: function(event){
+            alert("Hello Developers");
+        },
+        render: function() {
+            return (
+              <button onClick={this.helloHandler}>Click Me</button>
+            );
+        }
+    });
+    React.render(<SayHello/>, document.body);
+</script>
+</body>
+</html>

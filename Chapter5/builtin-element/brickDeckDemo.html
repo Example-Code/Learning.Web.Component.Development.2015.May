@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Brick Deck Element Demo</title>
+    <script src="../bower_components/platform/platform.js"></script>
+    <link rel="import" href="../bower_components/brick-deck/dist/brick-deck.html">
+    <style>
+        brick-deck{
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        brick-card:nth-child(even){
+            background: darkgreen;
+            color:#ffffff;
+        }
+        brick-card:nth-child(odd){
+            background: blue;
+            color:#ffffff;
+        }
+    </style>
+</head>
+<body>
+    <brick-deck selected-index="0" transition-type="slide-up">
+        <brick-card selected>Card 0 : Mango</brick-card>
+        <brick-card>Card 1 : Apple</brick-card>
+        <brick-card>Card 2 : Orange</brick-card>
+        <brick-card>Card 3 : Grapes</brick-card>
+    </brick-deck>
+    <button id="prevButton">Previous Card</button>
+    <button id="nextButton">Next Card</button>
+    <script>
+        window.addEventListener('WebComponentsReady',function(){
+            var deck = document.querySelector('brick-deck'),
+                nextButton = document.getElementById('nextButton'),
+                prevButton = document.getElementById('prevButton');
+            nextButton.addEventListener("click", function(){
+                deck.nextCard();
+            });
+            prevButton.addEventListener("click", function(){
+                deck.previousCard();
+            });
+        });
+    </script>
+</body>
+</html>

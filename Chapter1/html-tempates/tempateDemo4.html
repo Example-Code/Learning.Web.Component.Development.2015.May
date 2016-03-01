@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>
+        Web Component: Activating template using cloneNode method
+    </title>
+</head>
+<body>
+<div id="container"></div>
+<template id="aTemplate">
+    <h1>Template is activated using cloneNode method.</h1>
+</template>
+<script>
+    var aTemplate = document.querySelector("#aTemplate"),
+        container = document.getElementById("container"),
+        templateContent = aTemplate.content,
+        activeContent = templateContent.cloneNode(true);
+    container.appendChild(activeContent);
+</script>
+</body>
+</html>

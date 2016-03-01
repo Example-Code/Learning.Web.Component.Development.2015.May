@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ReactJS NonDOM Attribute Demo</title>
+    <script src="bower_components/react/react.js"></script>
+    <script src="bower_components/react/JSXTransformer.js"></script>
+</head>
+<body>
+<script type="text/jsx">
+    var StudentsReport = React.createClass({
+        render: function() {
+            var studentDetails = {
+                headerHTML:{
+                    __html: "<i>Student List</i>"
+                },
+                subject:"Mathematics",
+                list: [
+                    {roll:123, name:"Sandeep"},
+                    {roll:124, name:"Surabhi"}
+                ]
+            };
+            return (
+              <div>
+                <h1 dangerouslySetInnerHTML={studentDetails.headerHTML}>
+                </h1>
+                  <h3 ref="subjectName">{studentDetails.subject}</h3>
+                <ol>
+                {studentDetails.list.map(function(student) {
+                    return <li key={student.roll}>{student.name}</li>;
+                })}
+                </ol>
+                  <button onClick={this.logSubject}>Log Subject</button>
+              </div>
+            );
+        },
+        logSubject:function(event){
+            console.log("Subject React Element: ",this.refs.subjectName);
+            console.log("Subject DOM Element: ",this.refs.subjectName.getDOMNode());
+        }
+    });
+    React.render(<StudentsReport/>, document.body);
+</script>
+</body>
+</html>

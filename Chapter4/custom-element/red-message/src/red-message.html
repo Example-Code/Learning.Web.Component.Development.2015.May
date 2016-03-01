@@ -1,0 +1,17 @@
+<element name="red-message">
+    <style>
+        h1{
+            color:red;
+        }
+    </style>
+    <template>
+        <h1>Welcome to Bosonic framework.</h1>
+    </template>
+    <script>
+        ({
+            createdCallback: function() {
+                this.appendChild(this.template.content.cloneNode(true));
+            }
+        });
+    </script>
+</element>

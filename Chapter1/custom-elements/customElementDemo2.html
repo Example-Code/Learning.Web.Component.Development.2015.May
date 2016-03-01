@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Web Component: custom element example</title>
+    <script>
+        var objectPrototype = Object.create(HTMLElement.prototype);
+        Object.defineProperty(objectPrototype, 'title', {
+            writable : true
+        });
+        objectPrototype.createdCallback=function(){
+            this.innerText=this.title;
+        };
+        var  myNameElement = document.registerElement("my-name",{
+            prototype:objectPrototype
+        });
+    </script>
+</head>
+<body>
+    <my-name title="Welcome to custom element 1"></my-name>
+    <br>
+    <my-name title="Welcome to custom element 2"></my-name>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Paper Checkbox Demo</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js">
+    </script>
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+</head>
+<body unresolved>
+    <section>
+        <core-label horizontal layout center>
+            <paper-checkbox for id="mathCheckbox"></paper-checkbox>
+            <h1>Mathematics</h1>
+        </core-label>
+        <core-label horizontal layout center>
+            <paper-checkbox for checked id="compCheckbox"></paper-checkbox>
+            <h1>Computer</h1>
+        </core-label>
+    </section>
+    <script>
+        (function(){
+            var mathCheckbox = document.getElementById("mathCheckbox"),
+                compCheckbox = document.getElementById("compCheckbox");
+            //checked state changes due to user interaction
+            mathCheckbox.addEventListener("change", function (e) {
+                console.log("change event fired");
+            }),
+            //when the checked state changes by any mean
+            compCheckbox.addEventListener("core-change", function (e) {
+                console.log("core-change event fired");
+            });
+        }());
+    </script>
+</body>
+</html>

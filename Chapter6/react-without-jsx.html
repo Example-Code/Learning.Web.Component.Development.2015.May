@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ReactJS Without JSX Demo</title>
+    <script src="bower_components/react/react.js"></script>
+    <style>
+        .headerStyle{
+          color: red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var helloMessage = React.createElement('h1',
+                { className: 'headerStyle' }, 'Hello ReactJS');
+        React.render(helloMessage, document.body);
+    </script>
+</body>
+</html>

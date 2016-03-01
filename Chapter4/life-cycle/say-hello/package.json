@@ -1,0 +1,16 @@
+{
+  "name": "say-hello",
+  "version": "0.0.0",
+  "description": "say-hello ========",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "bosonic-test-tools": "~0.2.5",
+    "grunt-bosonic": "~0.4.0"
+  },
+  "dependencies": {
+    "bosonic": "~0.4.0"
+  }
+}

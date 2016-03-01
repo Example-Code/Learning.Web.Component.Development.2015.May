@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+    <link rel="import" href="morning-component.html">
+    <title>Polymer waitFor Method Demo</title>
+</head>
+<body>
+    <good-morning></good-morning>
+</body>
+</html>
+<script>
+    var elementList= Polymer.waitingFor(),
+        length = elementList.length;
+
+    for(var i=0; i<length; i++){
+        var aElement = elementList[0];
+        console.log("Element names waiting registration  are: ",aElement.name)
+    }
+</script>

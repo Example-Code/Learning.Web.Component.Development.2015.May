@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ReactJS stateful component Demo</title>
+    <script src="bower_components/react/react.js"></script>
+    <script src="bower_components/react/JSXTransformer.js"></script>
+</head>
+<body>
+<script type="text/jsx">
+    var StudentResult = React.createClass({
+        getInitialState: function(){
+            return{
+                result:" "
+            };
+        },
+        calculateResult: function(){
+            var refScore = this.refs.studentScore.getDOMNode().value,
+                score = parseInt(refScore,10);
+            if(score > 30){
+                this.setState({result:"PASS"})
+            }else if(score < 30){
+                this.setState({result:"FAIL"})
+            }else{
+                this.setState({result:""})
+            }
+        },
+        render: function() {
+            return (
+             <div className="score-container">
+                <input type="number" ref="studentScore"
+                       onChange={this.calculateResult}
+                       placeholder="Enter student score"/>
+                 <h2>Result :{this.state.result}</h2>
+             </div>
+            );
+        }
+    });
+    React.render(<StudentResult/>, document.body);
+</script>
+</body>
+</html>

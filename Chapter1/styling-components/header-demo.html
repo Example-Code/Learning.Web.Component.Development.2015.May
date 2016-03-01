@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Web Component: Unresolved pseudo selector</title>
+    <style>
+        header-element:unresolved{
+            visibility: hidden;
+        }
+        header-element:unresolved:after {
+            content: 'Registering Element...';
+            color: red;
+            visibility: visible;
+        }
+    </style>
+    <template id="headerTemplate">
+        <style>
+            :host {
+                text-transform: uppercase;
+            }
+            :host::shadow h1{
+                color:orange;
+            }
+            :host ::content b{
+                font-style: italic;
+                color:blue;
+            }
+        </style>
+        <h1>Hello <content></content></h1>
+    </template>
+    <script>
+        (function(){
+            var objectPrototype = Object.create(HTMLElement.prototype);
+            objectPrototype.createdCallback=function(){
+                var shadow = this.createShadowRoot(),
+                    templateContent = document.querySelector('#headerTemplate').content,
+                    templateNodes = document.importNode(templateContent, true);
+                shadow.appendChild(templateNodes);
+            };
+            window.setTimeout(function(){
+                document.registerElement("header-element",{
+                    prototype:objectPrototype
+                });
+            }, 3000);
+        })();
+    </script>
+</head>
+<body>
+    <header-element>
+        <b>Web Component</b>
+    </header-element>
+</body>
+</html>

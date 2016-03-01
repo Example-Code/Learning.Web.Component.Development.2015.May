@@ -1,0 +1,12 @@
+<polymer-element name="say-hello" constructor="SayHello" attributes="mytext">
+    <template>
+       <h4>Hello {{mytext}} !!!</h4>
+    </template>
+    <script>
+        Polymer({
+            created: function() {
+               this.mytext = "World"
+            }
+        });
+    </script>
+</polymer-element>

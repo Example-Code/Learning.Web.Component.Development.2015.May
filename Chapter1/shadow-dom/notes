@@ -1,0 +1,18 @@
+# To check the support of custom element
+http://caniuse.com/#feat=shadowdom
+
+interface ShadowRoot : DocumentFragment {
+    HTMLElement getElementById (DOMString elementId);
+    NodeList    getElementsByClassName (DOMString className);
+    NodeList    getElementsByTagName (DOMString tagName);
+    NodeList    getElementsByTagNameNS (DOMString? namespace, DOMString localName);
+    Selection?  getSelection ();
+    Element?    elementFromPoint (double x, double y);
+    readonly    attribute Element?       activeElement;
+    readonly    attribute Element        host;
+    readonly    attribute ShadowRoot?    olderShadowRoot;
+                attribute DOMString      innerHTML;
+    readonly    attribute StyleSheetList styleSheets;
+};
+
+getDestinationInsertionPoints()

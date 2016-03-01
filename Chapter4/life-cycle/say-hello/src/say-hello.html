@@ -1,0 +1,29 @@
+<element name="say-hello" message="">
+    <template>
+        <h1>Hello <span></span></h1>
+    </template>
+    <script>
+        ({
+            createdCallback:function(){
+                console.log(this.localName+" is created.");
+                var shadowRootNode = this.createShadowRoot(),
+                    templateContent = this.template.content.cloneNode(true),
+                    spanPlaceHolder = templateContent.querySelector("span");
+
+                spanPlaceHolder.innerText = this.getAttribute("message");
+                shadowRootNode.appendChild(templateContent);
+            },
+            attachedCallback:function(){
+                console.log(this.localName+" is attached to DOM.");
+            },
+            detachedCallback:function(){
+                console.log(this.localName+" is removed from DOM.");
+            },
+            attributeChangedCallback:function(attributeName){
+                var newMessageValue = this.getAttribute("message");
+                console.log(attributeName+" value is changed to "+ newMessageValue);
+                this.createdCallback();
+            }
+        });
+    </script>
+</element>

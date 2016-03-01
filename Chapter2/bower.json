@@ -1,0 +1,23 @@
+{
+  "name": "Chapter2Code",
+  "version": "0.0.1",
+  "authors": [
+    "saan1984 <sandeep_giet@yahoo.com>"
+  ],
+  "description": "PolymerJS library Demonstration",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "webcomponentsjs": "Polymer/webcomponentsjs#^0.5.0",
+    "core-component-page": "Polymer/core-component-page#^0.5.0",
+    "core-elements": "Polymer/core-elements#~0.5.5",
+    "paper-elements": "Polymer/paper-elements#~0.5.5",
+    "core-icons": "Polymer/core-icons#~0.5.5"
+  }
+}

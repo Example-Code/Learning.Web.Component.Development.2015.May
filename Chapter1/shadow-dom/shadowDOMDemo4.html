@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Shadow Root: Method & Properties example</title>
+</head>
+<body>
+    <div id="aShadowHost"></div>
+    <template id="selectorTemplate">
+        <style>
+            :host input{ background: lightyellow;}
+            :host .labelClass{ color:blue;}
+        </style>
+        <form>
+            <label for="nameElement" class="labelClass">Name</label>
+            <input type="text" id="nameElement" placeholder="Enter your name"
+                   value="Sandeep" autofocus>
+        </form>
+    </template>
+    <script>
+     (function(){
+         var aShadowHost = document.getElementById("aShadowHost"),
+             shadowRoot1 = aShadowHost.createShadowRoot(),
+             shadowRoot2 = aShadowHost.createShadowRoot(),
+             templateContent = document.querySelector('#selectorTemplate').content,
+             templateNodes = document.importNode(templateContent, true);
+         shadowRoot2.appendChild(templateNodes);
+         shadowRoot2.getElementById("nameElement").select();
+        /* //Shadow Root Methods
+         console.log("getElementById: ",shadowRoot2.getElementById("nameElement"));
+         console.log("getElementsByClassName: ",shadowRoot2.getElementsByClassName("labelClass"));
+         console.log("getElementsByTagName: ",shadowRoot2.getElementsByTagName("label"));
+         console.log("getElementsByTagNameNS: ",shadowRoot2.getElementsByTagNameNS("*","label"));
+         console.log("getSelection() Method: ",shadowRoot2.getSelection());
+         console.log("elementFromPoint: ",shadowRoot2.elementFromPoint(8,9));*/
+
+        //Shadow Root Properties
+         console.log("activeElement: ",shadowRoot2.activeElement);
+         console.log("host: ",shadowRoot2.host);
+         console.log("olderShadowRoot: ",shadowRoot2.olderShadowRoot);
+         console.log("styleSheets: ",shadowRoot2.styleSheets);
+         console.log("innerHTML: ",shadowRoot2.innerHTML);
+     })();
+    </script>
+</body>
+</html>

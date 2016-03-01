@@ -1,0 +1,34 @@
+{
+  "name": "brick-flipbox",
+  "homepage": "https://github.com/mozbrick/brick-flipbox",
+  "authors": [
+    "mozilla"
+  ],
+  "description": "Flips between two content elements with a CSS Animation, similar to flipping a playing card.",
+  "main": "dist/brick-flipbox.html",
+  "keywords": [
+    "brick",
+    "webcomponents"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "brick-common": "~0.1.4",
+    "platform": "Polymer/platform"
+  },
+  "_release": "30d9bb2ff3",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "30d9bb2ff374cce46f6496040ebb55761c9a5bba"
+  },
+  "_source": "git://github.com/mozbrick/brick-flipbox.git",
+  "_target": "*",
+  "_originalSource": "mozbrick/brick-flipbox"
+}

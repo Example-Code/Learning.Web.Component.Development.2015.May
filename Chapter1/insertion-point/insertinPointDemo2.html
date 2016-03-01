@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Web Component: content insertion point with select attribute example</title>
+    <template id="selectorTemplate">
+        <style>
+            :host b{
+                margin: 0px 10px;
+            }
+            :host ::content b.fruit{
+                color:green;
+            }
+            :host ::content b.flower{
+                color:orange;
+            }
+        </style>
+        <h1>
+            Fruits <content select="b.fruit"></content>.
+        </h1>
+        <h1>
+            Flowers <content select="b.flower"></content>.
+        </h1>
+    </template>
+    <script>
+        var objectPrototype = Object.create(HTMLElement.prototype);
+        objectPrototype.createdCallback=function(){
+            var shadow = this.createShadowRoot(),
+                templateContent = document.querySelector('#selectorTemplate').content,
+                templateNodes = document.importNode(templateContent, true);
+            shadow.appendChild(templateNodes);
+        };
+        var  myNameElement = document.registerElement("selector-component",{
+            prototype:objectPrototype
+        });
+    </script>
+</head>
+<body>
+    <selector-component>
+        <b class="fruit">Apple </b>
+        <b class="flower">Rose </b>
+        <b class="fruit">Orange </b>
+        <b class="fruit">Banana </b>
+        <b class="flower">Lotus </b>
+        <b class="fruit">Grapes </b>
+        <b class="flower">Jasmine </b>
+    </selector-component>
+</body>
+</html>

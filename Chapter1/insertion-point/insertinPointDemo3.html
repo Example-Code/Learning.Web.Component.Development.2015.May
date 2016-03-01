@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>>Web Component: shadow insertion point example</title>
+</head>
+<body>
+    <div id="aShadowHost"></div>
+    <template id="shadow1Template">
+        <button>Shadow Root 1 Button</button>
+    </template>
+    <template id="shadow2Template">
+        <fieldset>
+            <legend>Shadow Root 2</legend>
+            <shadow></shadow>
+        </fieldset>
+    </template>
+    <script>
+        //Old shadow root
+        var aShadowHost = document.getElementById("aShadowHost"),
+            aShadowRoot1 = aShadowHost.createShadowRoot();
+            templateContent = document.querySelector('#shadow1Template').content,
+            templateNodes = document.importNode(templateContent, true);
+        aShadowRoot1.appendChild(templateNodes);
+        //new shadow root with insertion point for older shadow root
+        var aShadowRoot2 = aShadowHost.createShadowRoot();
+        templateContent = document.querySelector('#shadow2Template').content,
+        templateNodes = document.importNode(templateContent, true);
+        aShadowRoot2.appendChild(templateNodes);
+    </script>
+</body>
+</html>

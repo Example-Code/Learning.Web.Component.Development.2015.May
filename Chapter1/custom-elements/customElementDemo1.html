@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Web Component: custom element support</title>
+</head>
+<body>
+<h1 id="message"></h1>
+<script>
+    var isCustomElementSupported = function (){
+        return 'registerElement' in document;
+    };
+    var isSupported = isCustomElementSupported(),
+            message = document.getElementById("message");
+    if (isSupported) {
+        message.innerHTML = "Custom element is supported by the browser.";
+    } else {
+        message.innerHTML = "Custom element is not supported by the browser.";
+    }
+</script>
+</body>
+</html>

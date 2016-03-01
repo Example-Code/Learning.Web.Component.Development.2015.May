@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+    <title>Polymer ready event listener example</title>
+</head>
+<body>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        console.log("DOMContentLoaded is fired at",new Date().getTime());
+    });
+    window.addEventListener('polymer-ready', function(e) {
+        console.log("polymer-ready is fired.",new Date().getTime());;
+    });
+</script>
+</body>
+</html>

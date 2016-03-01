@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Web Component: xTag custom element support</title>
+    <script src="x-tag-components.js"></script>
+    <script>
+        (function() {
+            xtag.register('italic-string', {
+                lifecycle: {
+                    created: function() {
+                        this.innerHTML = "<i style='color:" + this.textColor + "'>" + this.innerHTML + "</i>";
+                    }
+                },
+                accessors: {
+                    textColor: {
+                        attribute: {
+                            object: this.textColor
+                        }
+                    }
+                },
+                methods: {
+                    changeToRed: function() {
+                        var italicElement = this.querySelector("i");
+                        italicElement.style.color = "red";
+                    }
+                },
+                events: {
+                    'click:delegate(i)': function(e) {
+                        console.log("click event is fired.");
+                    }
+                }
+            });
+        })();
+    </script>
+</head>
+
+<body>
+<italic-string id="iStringComponent" textColor="blue">
+    Click Me
+</italic-string>
+<br>
+<button onclick="doColorRed()">
+    Make Red
+</button>
+<script>
+    var doColorRed = function() {
+        var italicStringElement = document.getElementById("iStringComponent");
+        italicStringElement.changeToRed();
+    }
+</script>
+</body>
+
+</html>

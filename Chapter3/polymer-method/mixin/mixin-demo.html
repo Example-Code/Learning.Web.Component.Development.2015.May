@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+    <link rel="import" href="common-mixin.html">
+    <link rel="import" href="printHi-component.html">
+    <link rel="import" href="printBye-component.html">
+    <title>Polymer Mixin Demo</title>
+</head>
+<body>
+<script>
+    //Using SayGood Constructor
+    window.addEventListener('polymer-ready', function(e) {
+        var printBye1 = new PrintBye(),
+            printHi1= new PrintHi(),
+            myName1 = printBye1.printMyName(),
+            myName2 = printHi1.printMyName();
+        console.log(myName1)
+        console.log(myName2)
+    });
+</script>
+</body>
+</html>

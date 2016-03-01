@@ -1,0 +1,7 @@
+# To check the support of custom element
+http://caniuse.com/#feat=imports
+
+partial interface LinkImport {
+    readonly attribute Document? import;
+};
+HTMLLinkElement implements LinkImport;

@@ -1,0 +1,3 @@
+yo polymer:element my-element
+           or
+yo polymer:el my-element

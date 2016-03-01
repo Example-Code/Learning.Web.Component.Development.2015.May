@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+    <link rel="import" href="good-component.html">
+    <title>Polymer sayGood component demo</title>
+</head>
+<body>
+    <say-good mytext="John" time="Night">
+    </say-good>
+    <script>
+        //Using SayGood Constructor
+        window.addEventListener('polymer-ready', function(e) {
+            var sayGood1 = new SayGood();
+            sayGood1.mytext = "Smith";
+            sayGood1.time = "Afternoon";
+            document.body.appendChild(sayGood1);
+        });
+    </script>
+</body>
+</html>

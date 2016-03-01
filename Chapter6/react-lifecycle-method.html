@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ReactJS Life Cycle  Demo</title>
+    <script src="bower_components/react/react.js"></script>
+    <script src="bower_components/react/JSXTransformer.js"></script>
+    <style>
+        button{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<script type="text/jsx">
+    var Welcome = React.createClass({
+        getDefaultProps:function(){
+            console.log("inside getDefaultProps method");
+            return{
+                myName:"Sandeep"
+            };
+        },
+        getInitialState:function(){
+            console.log("inside getInitialState method");
+            return null;
+        },
+        componentWillMount:function(){
+            console.log("inside componentWillMount method");
+        },
+        componentDidMount:function(){
+            console.log("inside componentDidMount method");
+        },
+        render: function() {
+            console.log("inside render method");
+            return (
+             <div>
+                <h1>Welcome {this.props.myName}</h1>
+                <button onClick={this.changeName}>
+                    Change myName to John
+                </button>
+                <button onClick={this.removeHandler}>
+                    Remove Welcome Element
+                </button>
+              </div>
+            );
+        },
+        componentWillReceiveProps:function(){
+            console.log("inside componentWillReceiveProps method");
+        },
+        shouldComponentUpdate:function(){
+            console.log("inside shouldComponentUpdate method");
+            return true;
+        },
+        componentWillUpdate:function(){
+            console.log("inside componentWillUpdate method");
+        },
+        componentDidUpdate:function(){
+            console.log("inside componentDidUpdate method");
+        },
+        componentWillUnmount:function(){
+            console.log("inside componentWillUnmount method");
+        },
+        changeName:function(){
+            this.setProps({myName :"John"})
+        },
+        removeHandler: function(){
+            var thisElement = this.getDOMNode();
+            this.unmountComponent(thisElement);
+        }
+    });
+    React.render(<Welcome/>, document.body);
+</script>
+</body>
+</html>

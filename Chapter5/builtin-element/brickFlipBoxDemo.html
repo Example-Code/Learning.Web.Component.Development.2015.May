@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Brick FlipBox Element Demo</title>
+    <script src="../bower_components/platform/platform.js"></script>
+    <link rel="import" href="../bower_components/brick-flipbox/dist/brick-flipbox.html">
+    <style>
+        .myBox {
+            width: 100px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        .myBox > div:first-child {
+            background: red;
+        }
+        .myBox > div:last-child {
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+
+<brick-flipbox class="myBox">
+    <div>Front Side : 1</div>
+    <div>Back Side : 2</div>
+</brick-flipbox>
+<button id="toggleButton">Flip</button>
+
+<script>
+    window.addEventListener('WebComponentsReady',function(){
+        var flipbox = document.querySelector('brick-flipbox'),
+            toggleButton = document.getElementById('toggleButton');
+        flipbox.direction = 'left';
+        toggleButton.addEventListener("click", function(){
+            flipbox.toggle();
+            console.log("flipped : "+flipbox.flipped);
+        });
+    });
+</script>
+</body>
+</html>

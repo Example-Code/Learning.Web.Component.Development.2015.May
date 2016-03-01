@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Core Input Demo</title>
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js">
+    </script>
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="bower_components/core-input/core-input.html">
+</head>
+<body>
+    <section>
+        <input is="core-input" id="coreInput1"
+               type="number"
+               placeholder="Enter a Number"
+               preventInvalidInput
+               onchange="changeHandler()">
+    </section>
+<script>
+    var changeHandler = function(){
+        var coreInput1 = document.getElementById("coreInput1");
+        console.log("Value "+coreInput1.value);
+        console.log("Before commit committedValue "+coreInput1.committedValue);
+        //Committing the value
+        coreInput1.commit();
+        console.log("After Commit committedValue "+coreInput1.committedValue);
+    }
+</script>
+</body>
+</html>

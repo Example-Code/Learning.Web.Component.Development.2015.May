@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>display-year</title>
+
+  <script src="../../webcomponentsjs/webcomponents.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../display-year.html">
+
+</head>
+<body>
+
+  <display-year id="fixture"></display-year>
+
+  <script>
+    var myEl = document.getElementById('fixture');
+
+    suite('<display-year>', function() {
+
+      test('defines the "author" property', function() {
+        assert.equal(myEl.author, 'Dimitri Glazkov');
+      });
+
+      test('says hello', function() {
+        assert.equal(myEl.sayHello(), 'display-year says, Hello World!');
+        var greetings = myEl.sayHello('greetings Earthlings');
+        assert.equal(greetings, 'display-year says, greetings Earthlings');
+      });
+
+      test('fires lasers', function(done) {
+        myEl.addEventListener('display-year-lasers-success', function(event) {
+          assert.equal(event.detail.sound, 'Pew pew pew!');
+          done();
+        });
+        myEl.fireLasers();
+      });
+
+    });
+  </script>
+
+</body>
+</html>

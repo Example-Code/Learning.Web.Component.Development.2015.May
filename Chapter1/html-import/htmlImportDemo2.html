@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <script async>
+        function handleSuccess(e) {
+            //import load Successful
+            var targetLink = e.target,
+                externalDocument = targetLink.import;
+            headerElement = externalDocument.querySelector('h1'),
+            clonedHeaderElement = headerElement.cloneNode(true);
+            document.body.appendChild(clonedHeaderElement);
+        }
+        function handleError(e) {
+            //Error in load
+            alert("error in import");
+        }
+    </script>
+    <link rel="import" href="message.html"
+          onload="handleSuccess(event)"
+          onerror="handleError(event)">
+</head>
+<body>
+</body>
+</html>

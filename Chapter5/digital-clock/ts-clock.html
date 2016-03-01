@@ -1,0 +1,78 @@
+<script src="x-tag-components.min.js"></script>
+<template id="clockTemplate">
+    <style>
+        :host .clock {
+            display: inline-flex;
+            justify-content: space-around;
+            background: floralwhite;
+            font-size: 2rem;
+            font-family: serif;
+        }
+        :host .clock .hour,
+        :host .clock .minute,
+        :host .clock .second {
+            color: tomato;
+            padding: 1.5rem;
+            text-shadow: 0px 1px grey;
+        }
+    </style>
+    <div class="clock">
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+    </div>
+</template>
+
+<script>
+    (function() {
+        var thisDoc = document._currentScript.ownerDocument;
+        xtag.register('ts-clock', {
+            lifecycle: {
+                created: function() {
+                    var shadowRoot = this.createShadowRoot(),
+                        template = thisDoc.getElementById('clockTemplate'),
+                        templateContent = template.content,
+                        activeClockTemplate = templateContent.cloneNode(true);
+                    shadowRoot.appendChild(activeClockTemplate);
+                },
+                accessors: {
+                    hour: {
+                        attribute: {}
+                    },
+                    minute: {
+                        attribute: {}
+                    },
+                    second: {
+                        attribute: {}
+                    }
+                },
+                inserted: function() {
+                    var clockElement = this;
+                    window.setInterval(function() {
+                        var date = new Date();
+                        clockElement.setAttribute("hour", date.getHours());
+                        clockElement.setAttribute("minute", date.getMinutes());
+                        clockElement.setAttribute("second", date.getSeconds());
+                    }, 1000);
+                },
+                attributeChanged: function(attributeName, oldValue, newValue) {
+                    var shadowRootNode = this.shadowRoot,
+                        hourPlaceholder = shadowRootNode.querySelector('.hour'),
+                        minutePlaceholder = shadowRootNode.querySelector('.minute'),
+                        secondPlaceHolder = shadowRootNode.querySelector('.second');
+                    switch (attributeName) {
+                        case "hour":
+                            hourPlaceholder.innerText = this.getAttribute("hour");
+                            break;
+                        case "minute":
+                            minutePlaceholder.innerText = this.getAttribute("minute");
+                            break;
+                        case "second":
+                            secondPlaceHolder.innerText = this.getAttribute("second");
+                            break;
+                    }
+                }
+            }
+        });
+    })();
+</script>

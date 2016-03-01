@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>
+        Web Component: HTML import support
+    </title>
+</head>
+<body>
+<h1 id="message"></h1>
+<script>
+    var isImportSupported = function () {
+        var link = document.createElement("link");
+        return 'import' in link;
+    };
+    var isSupported = isImportSupported(),
+            message = document.getElementById("message");
+    if (isSupported) {
+        message.innerHTML = "Import is supported by the browser.";
+    } else {
+        message.innerHTML = "Import is not supported by the browser.";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+lifecycle:{
+  created: function(){
+    // code for created state
+  },
+  inserted: function(){
+    // code for inserted state
+  },
+  removed: function(){
+    // code for removed state
+  },
+  attributeChanged: function(){
+    // code for attributeChanged state
+  }
+}
+
+xtag.register('<element-name>', {
+              lifecycle:{
+                created: function(){
+                  // code for created state
+                },
+                inserted: function(){
+                  // code for inserted state
+                },
+                removed: function(){
+                  // code for removed state
+                },
+                attributeChanged: function(){
+                  // code for attributeChanged state
+                }
+              },
+                accessors:{
+                    <property name> :{
+                        attribute:{
+                            //type and value of the property
+                        }
+                    }
+                },
+                methods:{
+                    <method name>: function(){
+                      //Code for the method
+                    }
+                },
+                events: {
+                    '<event type>:delegate(<element>)': function(e){
+                        //Code for event handler
+                    }
+                }
+            });

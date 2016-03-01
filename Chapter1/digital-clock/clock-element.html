@@ -1,0 +1,53 @@
+<template id="clockTemplate">
+    <style>
+        :host::shadow .clock {
+            display: inline-flex;
+            justify-content: space-around;
+            background: white;
+            font-size: 8rem;
+            box-shadow: 2px 2px 4px -1px grey;
+            border: 1px solid green;
+            font-family: Helvetica, sans-serif;
+            width: 100%;
+        }
+        :host::shadow .clock .hour,
+        :host::shadow .clock .minute,
+        :host::shadow .clock .second {
+            color: orange;
+            padding: 1.5rem;
+            text-shadow: 0px 2px black;
+        }
+    </style>
+    <div class="clock">
+        <div class="hour">HH</div>
+        <div class="minute">MM</div>
+        <div class="second">SS</div>
+    </div>
+</template>
+<script>
+    (function() {
+        var selfDocument = document.currentScript.ownerDocument,
+            objectPrototype = Object.create(HTMLElement.prototype);
+        objectPrototype.createdCallback = function() {
+            var shadow = this.createShadowRoot(),
+                templateContent = selfDocument.querySelector('#clockTemplate').content,
+                templateNodes = document.importNode(templateContent, true),
+                hourElement = null,
+                minuteElement = null,
+                secondElement = null;
+            shadow.appendChild(templateNodes);
+            hourElement = shadow.querySelector('.hour'),
+                    minuteElement = shadow.querySelector('.minute'),
+                    secondElement = shadow.querySelector('.second');
+            window.setInterval(function() {
+                var date = new Date();
+                hourElement.innerText = date.getHours();
+                minuteElement.innerText = date.getMinutes();
+                secondElement.innerText = date.getSeconds();
+            }, 1000);
+        };
+        var digitalClockElement = document.registerElement("digital-clock", {
+            prototype: objectPrototype
+        });
+    })();
+</script>

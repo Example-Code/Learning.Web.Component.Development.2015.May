@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Say-Hello Element Demo</title>
+    <meta charset="utf-8">
+    <script src="js/say-hello.js"></script>
+</head>
+<body>
+    <div id="elementContainer">
+        <say-hello message="Web Component">
+        </say-hello>
+    </div>
+
+    <input type="text" id="messageElement" placeholder="Enter some message">
+    <br><br>
+
+    <button onclick="changeMessageHandler()">Change Message</button>
+    <button onclick="deleteElementHandler()">Delete SayHello Element</button>
+    <button onclick="createElementHandler()">Create SayHello Element</button>
+
+    <script type="text/javascript">
+        //changes the value of the message
+       var changeMessageHandler = function(){
+
+           var sayHelloElement = document.querySelector("say-hello"),
+               messageText = document.getElementById("messageElement").value;
+           sayHelloElement.setAttribute("message",messageText);
+
+       },
+       //delete the say-hello element
+       deleteElementHandler = function(){
+
+           var sayHelloElement = document.querySelector("say-hello");
+           sayHelloElement.remove();
+
+       },
+       //create new say-hello element
+       createElementHandler = function(){
+           var sayHelloElement = document.createElement("say-hello"),
+               elementContainer = document.getElementById("elementContainer");
+
+           elementContainer.appendChild(sayHelloElement);
+       };
+    </script>
+</body>
+</html>

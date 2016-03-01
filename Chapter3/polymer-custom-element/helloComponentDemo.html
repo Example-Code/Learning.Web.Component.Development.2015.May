@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+    <link rel="import" href="hello-component.html">
+    <title>Polymer sayHello component demo</title>
+</head>
+<body>
+    <say-hello>
+    </say-hello>
+
+    <say-hello mytext="John">
+    </say-hello>
+
+    <script>
+        //Using SayHello Constructor
+        window.addEventListener('polymer-ready', function(e) {
+            var sayHello1 = new SayHello();
+            sayHello1.mytext = "PolymerJS"
+            document.body.appendChild(sayHello1)
+        });
+    </script>
+</body>
+</html>

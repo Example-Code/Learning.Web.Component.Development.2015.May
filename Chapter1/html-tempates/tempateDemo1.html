@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>
+        Web Component: template support
+    </title>
+</head>
+<body>
+<h1 id="message"></h1>
+<script>
+    var isTemplateSupported = function () {
+        var template = document.createElement("template");
+        return 'content' in template;
+    };
+    var isSupported = isTemplateSupported(),
+            message = document.getElementById("message");
+    if (isSupported) {
+        message.innerHTML = "Template element is supported by the browser.";
+    } else {
+        message.innerHTML = "Template element is not supported by the browser.";
+    }
+</script>
+</body>
+</html>

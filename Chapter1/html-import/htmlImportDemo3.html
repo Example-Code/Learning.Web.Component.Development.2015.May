@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <link rel="import" href="message.html">
+</head>
+<body>
+<script>
+    (function(){
+        var externalDocument = document.querySelector('link[rel="import"]').import;
+            headerElement = externalDocument.querySelector('h1')
+        document.body.appendChild(headerElement.cloneNode(true));
+    })();
+</script>
+</body>
+</html>

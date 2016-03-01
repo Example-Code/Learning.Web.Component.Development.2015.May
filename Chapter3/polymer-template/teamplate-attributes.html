@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+    <title>Polymer template attributes example</title>
+</head>
+<body>
+
+<template id="template1" is="auto-binding"
+          if="{{myData.myFlag}}">
+    <h1>The value of myFlag is {{myData.myFlag}}</h1>
+</template>
+<template id="template2" is="auto-binding"
+          repeat="{{studentName in students}}">
+    <h1>{{studentName}}</h1>
+</template>
+<template id="template3" is="auto-binding"
+          repeat="{{sub in subjects}}">
+    <template bind="{{sub}}">
+        <h1>Subject name is {{name}} and country is {{country}}</h1>
+    </template>
+</template>
+<template id="template4">
+    <h1>Hello world !!!</h1>
+</template>
+<template id="template5" is="auto-binding"
+          ref="template4">
+</template>
+
+<script>
+    (function () {
+        var template1 = document.querySelector("#template1"),
+            template2 = document.querySelector("#template2"),
+            template3 = document.querySelector("#template3");
+        template1.myData = {
+            "myFlag": true
+        };
+        template2.students = ["Sandeep", "Sangeeta", "Surabhi", "Sumanta"];
+        template3.subjects = [{"name": "Computer", "country": "India"}]
+    })();
+</script>
+</body>
+</html>

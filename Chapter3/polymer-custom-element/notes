@@ -1,0 +1,69 @@
+<polymer-element>
+</polymer-element>
+
+<polymer-element name="tag-name" constructor="TagName">
+  <template>
+    <!-- shadow DOM here -->
+  </template>
+  <script>
+    Polymer({
+      // properties and methods here
+    });
+  </script>
+</polymer-element>
+
+<polymer-element name="tag-name"
+                 attributes="property1 property2...">
+</polymer-element>
+
+<polymer-element name="tag-name" myDefaultProperty1>
+</polymer-element>
+
+<polymer-element name="tag-name">
+  <script>
+    Polymer({
+      message: "Hi!",
+      get greeting() {
+        return this.message + ' You are welcome.';
+      },
+      sayBye : function(){
+        return ' Bye.';
+      }
+    });
+  </script>
+</polymer-element>
+
+<polymer-element name="tag-name">
+  <script>
+    Polymer({
+      publish: {
+         property1: "value1",
+         property2: "value2",
+      }
+    });
+  </script>
+</polymer-element>
+
+
+Polymer('tag-name', {
+  created: function() {
+    //Code for created state callback
+  },
+  ready: function() {
+     //Code for ready state callback
+  },
+  attached: function () {
+    //Code for attached state callback
+  },
+  domReady: function() {
+    //Code for domReady state callback
+  },
+  detached: function() {
+    //Code for detached state callback
+  },
+  attributeChanged: function(attrName, oldVal, newVal) {
+    // code for attribute changed state callback
+  }
+});
+
+Polymer([ tag-name, ] [prototype]);

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+    <title>PolymerJS Global Custom Filter Expression</title>
+</head>
+<body>
+    <template id="template1" is="auto-binding">
+        <h1>{{student.name | sayBye}}</h1>
+    </template>
+    <script>
+        (function(){
+            var template1 = document.querySelector("#template1");
+            template1.student= {
+                "name":"Sandeep"
+            };
+            PolymerExpressions.prototype.sayBye = function(inputString) {
+                return "Bye " + inputString;
+            };
+        })();
+    </script>
+</body>
+</html>

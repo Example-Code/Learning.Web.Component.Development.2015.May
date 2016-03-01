@@ -1,0 +1,52 @@
+# To check the support of custom element
+http://caniuse.com/#feat=custom-elements
+
+#Life cycle callback methods of an element
+createdCallback : An instance of the element is created.
+attachedCallback : An instance was inserted into the document.
+detachedCallback : an instance was removed from the document.
+attributeChangedCallback(attrName, oldVal, newVal): an attribute was added, removed, or updated.
+
+Object.create(<target prototype>[, propertiesObject]);
+
+Object.defineProperty(<target object>, <property name>, <configuration>);
+Object.defineProperties(<target object>, <properties>);
+
+configurable:
+enumerable:
+value:
+writable:
+get:
+set:
+
+var newObject = Object.create(HTMLElement.prototype);
+Object.defineProperty(newObject, 'title', {
+    writable : true
+});
+
+var newObject = Object.create(HTMLElement.prototype);
+Object.defineProperties(newObject,  {
+    title:{
+        writable:true
+    },
+    country:{
+        writable:false,
+        value:"India"
+    }
+});
+
+var objectPrototype = Object.create(HTMLElement.prototype);
+    objectPrototype.createdCallback=function(){
+       console.log("Instance is created");
+    };
+var constructorOfElement = document.registerElement(<tag-name>, settingOption);
+
+var  objectPrototype = Object.create(HTMLElement.prototype),
+     italicElement = document.registerElement("italic-message",{
+        prototype:objectPrototype,
+        extends:'i'
+});
+
+<welcome-message is="i">
+    Hello world
+</welcome-message>

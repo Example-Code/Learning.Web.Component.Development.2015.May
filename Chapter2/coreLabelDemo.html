@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Core Label Demo</title>
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js">
+    </script>
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="bower_components/core-input/core-input.html">
+    <link rel="import" href="bower_components/core-label/core-label.html">
+</head>
+<body>
+    <section>
+        <core-label for="#coreInput1">Student Name :</core-label>
+        <input is="core-input" id="coreInput1"
+               type="text" placeholder="Enter Your Name">
+        <br/>
+        <core-label>
+            Student Subject :
+            <input is="core-input" type="text"
+                   placeholder="Enter Your Subject">
+        </core-label>
+    </section>
+</body>
+</html>
